@@ -7,6 +7,9 @@ bool normalmode=false;
 char* filebeg;
 char* filecon;
 char* fileend;
+QByteArray ba1;
+QByteArray ba2;
+QByteArray ba3;
 
 long tnum=0;
 long snum=0;
@@ -65,21 +68,21 @@ void MainWindow::UpdateFilePath(){
     filepath=QString("%1,%2,%3,%4").arg("image.avi")
             .arg(ui->comboBox_videotype->currentText())
             .arg(ui->spinBox_quality->value()).arg("beg");
-    QByteArray ba1 = filepath.toLatin1();
+    ba1 = filepath.toLatin1();
     filebeg = ba1.data();
 
     filepath.clear();
     filepath=QString("%1,%2,%3,%4").arg("image.avi")
             .arg(ui->comboBox_videotype->currentText())
             .arg(ui->spinBox_quality->value()).arg("con");
-    QByteArray ba2 = filepath.toLatin1();
+    ba2 = filepath.toLatin1();
     filecon = ba2.data();
 
     filepath.clear();
     filepath=QString("%1,%2,%3,%4").arg("image.avi")
             .arg(ui->comboBox_videotype->currentText())
             .arg(ui->spinBox_quality->value()).arg("end");
-    QByteArray ba3 = filepath.toLatin1();
+    ba3 = filepath.toLatin1();
     fileend = ba3.data();
     log(QString("filebeg: %1").arg(filebeg));
     log(QString("filecon: %1").arg(filecon));
